@@ -120,5 +120,8 @@
     "presets": [
       "react-app"
     ]
+  },
+  "devDependencies": {
+    "react-redux": "^5.1.1"
   }
 }

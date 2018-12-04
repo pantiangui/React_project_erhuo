@@ -1,0 +1,31 @@
+@import "./common.scss";
+
+#inform{
+	.notice{
+		height:rem(104);
+		width:100%;
+		background:#fbf0c3;
+		position: relative;
+		line-height: rem(104);
+		>i{
+			position: absolute;
+			font-size: rem(60);
+			
+		}
+		.notice_icon{
+			color: #e27125;
+			left: rem(45);
+		}
+		.to{
+			color: #c2b68e;
+			right: rem(40);
+		}
+		>span{
+			z-index: 100;
+			display: inline-block;
+			color: #9c9a67;
+			font-size: rem(35);
+			margin-left: rem(140);
+		}
+	}
+}

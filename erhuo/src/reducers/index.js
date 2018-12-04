@@ -1,12 +1,10 @@
-// import { combineReducers } from "redux";
-// 
-// import cartReducer from './cartReducer';
-// import commonReducer from './commonReducer';
-// 
-// let rootReducer = combineReducers({
-//     cartReducer,
-// commonReducer
-// 
-// });
-// 
-// export default rootReducer;
+import { combineReducers } from "redux";
+
+import commonReducer from './commonReducer';
+
+let rootReducer = combineReducers({
+	commonReducer
+
+});
+
+export default rootReducer;

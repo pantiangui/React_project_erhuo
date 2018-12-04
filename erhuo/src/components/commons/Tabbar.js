@@ -1,6 +1,8 @@
 import React,{Component} from 'react';
 import {withRouter} from 'react-router-dom';//引入路由
 
+import {connect} from 'react-redux';
+
 import '../../sass/tabbar.scss'
 
 
@@ -48,11 +50,9 @@ class Tabbar extends Component{
 		this.props.history.push(path)
 	}
 	
-	
-	componentWillMount(){
+	fn(){//状态函数
 		//获取hash值
 		// let hash = window.location.hash.slice(1);
-		
 		let hash = "/"+window.location.hash.split("/")[1];
 		
 		
@@ -67,12 +67,25 @@ class Tabbar extends Component{
 		this.setState({
 			selectedTab
 		});
+		
 	}
+	
+	
+	componentWillMount(){
+		this.fn()
+		
+	}
+	
+	componentWillReceiveProps(){
+		this.fn()
+	}
+	
+	
 	
 	
 	render(){
 		return (
-			<div id="tabbar" className="tabbar_none">
+			<div id="tabbar" className="tabbar_none" style={{display:this.props.tabbarStatus===true?"block":"none"}}>
 				<div className="tabbar">
 					<ul>
 					{
@@ -94,6 +107,17 @@ class Tabbar extends Component{
 			)
 		}
 }
+
+
+let mapStateToProps = state=>{
+    // 此处必须返回一个对象
+    return {
+        //把state.映射到props
+        tabbarStatus:state.commonReducer.tabbarStatus,
+    }
+}
+
+Tabbar = connect(mapStateToProps)(Tabbar);
 
 // 高阶组件
 Tabbar=withRouter(Tabbar)

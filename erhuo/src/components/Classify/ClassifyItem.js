@@ -62,10 +62,10 @@ class ClassifyItem extends Component{
 	}
 	
 	
-	
+	 // style={{height:this.state.client_H}}
 	render(){
 		return (
-			<div id="classify_item" style={{height:this.state.client_H}}>
+			<div id="classify_item">
 				<ul>
 				{
 					this.state.classify_item.map((tab,idx)=>(
