@@ -1,0 +1,64 @@
+﻿[
+	
+                {
+		title: "电脑主板",
+		icon: "c0107/c010701.jpg"
+	},
+	{
+		title: "CPU",
+		icon: "c0107/c010702.jpg"
+	},
+	{
+		title: "显卡",
+		icon: "c0107/c010703.jpg"
+	}，
+                {
+		title: "内存条",
+		icon: "c0107/c010704.jpg"
+	}，
+                {
+		title: "硬盘",
+		icon: "c0107/c010705.jpg"
+	}，
+                {
+		title: "散热器",
+		icon: "c0107/c010706.jpg"
+	}，
+                {
+		title: "电脑机箱",
+		icon: "c0107/c010707.jpg"
+	}，
+                {
+		title: "显示器",
+		icon: "c0107/c010708.jpg"
+	}，
+                {
+		title: "键盘",
+		icon: "c0107/c010709.jpg"
+	},
+	{
+		title: "连接线",
+		icon: "c0107/c010710.jpg"
+	},
+	{
+		title: "鼠标",
+		icon: "c0107/c010711.jpg"
+	}，
+                {
+		title: "存储卡",
+		icon: "c0107/c010712.jpg"
+	}，
+                {
+		title: "储存设备",
+		icon: "c0107/c010713.jpg"
+	}，
+                {
+		title: "移动电源",
+		icon: "c0107/c010714.jpg"
+	}，
+                {
+		title: "手机配件",
+		icon: "c0107/c010715.jpg"
+	}，
+
+]

@@ -1,0 +1,16 @@
+// 适配参数
+@function rem($val){
+	@return $val/108+rem
+}
+
+
+// 网页主配色(黄色)
+$color1:#fdd60f;
+// 网页主字体色（浅黑）
+$color2:#333333;
+// 浅字体色（灰色）
+$color3:#808080;
+// 网页浅背景色（浅灰）
+$color4:#eeeeee;
+
+

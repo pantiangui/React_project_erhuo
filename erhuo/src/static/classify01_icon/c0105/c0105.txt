@@ -1,0 +1,66 @@
+﻿[
+	{
+		title: "联想",
+		icon: "c0105/c010501.jpg"
+	},
+	{
+		title: "戴尔",
+		icon: "c0105/c010502.jpg"
+	},
+	{
+		title: "苹果",
+		icon: "c0105/c010503.jpg"
+	}，
+                {
+		title: "惠普",
+		icon: "c0105/c010504.jpg"
+	}，
+                {
+		title: "神舟",
+		icon: "c0105/c010505.jpg"
+	}，
+                {
+		title: "海尔",
+		icon: "c0105/c010506.jpg"
+	}，
+                {
+		title: "清华同方",
+		icon: "c0105/c010507.jpg"
+	}，
+                {
+		title: "方正科技",
+		icon: "c0105/c010508.jpg"
+	}，
+                {
+		title: "宏基",
+		icon: "c0105/c010509.jpg"
+	},
+	{
+		title: "长城",
+		icon: "c0105/c010510.jpg"
+	},
+	{
+		title: "LG",
+		icon: "c0105/c010511.jpg"
+	}，
+                {
+		title: "华硕",
+		icon: "c0105/c010512.jpg"
+	}，
+                {
+		title: "三星",
+		icon: "c0105/c010513.jpg"
+	}，
+                {
+		title: "微星",
+		icon: "c0105/c010514.jpg"
+	}，
+                {
+		title: "飞利浦",
+		icon: "c0105/c010515.jpg"
+	}，
+                {
+		title: "HKC",
+		icon: "c0105/c010516.jpg"
+	}，
+]

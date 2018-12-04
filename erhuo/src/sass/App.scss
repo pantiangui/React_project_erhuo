@@ -1,0 +1,11 @@
+@import "./common.scss";
+
+html,body{
+	height: 100%;
+}
+.header{
+	width: 100%;
+	height: rem(142);
+	background: #fafafa;
+	position: relative;
+}

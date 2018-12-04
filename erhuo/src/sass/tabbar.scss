@@ -1,0 +1,64 @@
+@import "./common.scss";
+
+
+#tabbar{
+	height: rem(147);
+	width: rem(1080);
+	
+	.tabbar{
+		background: #FFF;
+		height: rem(147);
+		width: rem(1080);
+		border-top: rem(3) solid #f0f0f0;
+		position: fixed;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		ul{
+			display: flex;
+			li{
+				flex:1;
+				text-align: center;
+				position:relative;
+				.icon_box{
+					height: rem(50);
+					margin:rem(12) 0;
+					i{
+						font-size:rem(60);
+						color: #888888;
+					}
+					#selectedTab{
+						color: $color1;
+					}
+				}
+				.title{
+					margin-top: rem(30);
+					font-size:rem(30);
+					color: $color2;
+				}
+				.add{
+					position: absolute;
+					width: rem(140);
+					height: rem(140);
+					border-radius: 50%;
+					box-shadow: 0 rem(-15) rem(30) 0 #e5e5e5;
+					left: rem(35);
+					top: rem(-80);
+					background: white;
+					text-align: center;
+					line-height: rem(145);
+					i{
+						color: $color1;
+						font-size: rem(100);
+					}
+				}
+				.add_none{
+					display: none;
+				}
+			}
+		}
+	}
+}
+// .tabbar_none{
+// 	display: none;
+// }

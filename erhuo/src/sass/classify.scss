@@ -1,0 +1,53 @@
+@import "./common.scss";
+
+
+
+// 分类主页
+#classify{
+	width: 100%;
+	height: 100%;
+	border-top: rem(2) solid #f0f0f0;
+}
+
+
+
+// 侧边栏
+#classify_item{
+	width: rem(337);
+	// height: 100%;
+	// height: rem(1700);
+	// background: green;	
+	// background: greenyellow;
+	border-right: rem(2) solid #f0f0f0;
+	>ul{
+		>li{
+			height: rem(180);
+			width: 100%;
+			line-height: rem(180);
+			position: relative;
+			i{
+				display: inline-block;
+				height: rem(92);
+				width: rem(12);
+				background: #FFF;
+				position: absolute;
+				top: rem(44);
+				left: 0;
+			}
+			.selectedItem1{
+				background: $color1;
+			}
+			span{
+				display: inline-block;
+				margin-left: rem(50);
+				font-size: rem(35);
+				color: $color2;
+			}
+			.selectedItem2{
+				color: $color1;
+			}
+		}
+	}
+}
+
+
