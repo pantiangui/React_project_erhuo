@@ -2,9 +2,11 @@ import React,{Component} from 'react';
 import {withRouter} from 'react-router-dom';//引入路由
 
 import {connect} from 'react-redux';
+import {issue} from '../../actions/index.js';
+
 
 import '../../sass/tabbar.scss'
-
+import {Issue} from "./Issue.js"
 
 class Tabbar extends Component{
 	constructor(){
@@ -23,7 +25,7 @@ class Tabbar extends Component{
 				},
 				{
 					title:"发布",
-					path:"/issue",
+					path:"",
 					icon:""
 				},
 				{
@@ -38,16 +40,23 @@ class Tabbar extends Component{
 				}
 			],
 			selectedTab:0,
-			
+			issueStatus:false
 		}
 	}
 	
-	// 点击事件
+	// 改变tabbar事件
 	handlerClick(idx,path){
-		this.setState({
-			selectedTab:idx
-		})
-		this.props.history.push(path)
+		if(idx!==2){
+			this.setState({
+				selectedTab:idx
+			})
+			this.props.history.push(path)
+		}
+	}
+	
+	// 弹出issue事件
+	issueClick(){
+		this.props.changeIssueStatus(true);
 	}
 	
 	fn(){//状态函数
@@ -86,6 +95,7 @@ class Tabbar extends Component{
 	render(){
 		return (
 			<div id="tabbar" className="tabbar_none" style={{display:this.props.tabbarStatus===true?"block":"none"}}>
+				<Issue issueStatus={this.state.issueStatus} />
 				<div className="tabbar">
 					<ul>
 					{
@@ -96,8 +106,10 @@ class Tabbar extends Component{
 									id={this.state.selectedTab===idx?"selectedTab":""}></i>
 								</p>
 								<p className="title">{tab.title}</p>
-								<p className={idx!==2?"add add_none":"add"}>
-									<i className="iconfont icon-jia-tianchong"></i></p>
+								<div className={idx!==2?"add add_none":"add"}>
+									<i className="iconfont icon-jia-tianchong"
+									onClick={this.issueClick.bind(this)}></i>
+								</div>
 							</li>
 						)
 					)}
@@ -117,7 +129,16 @@ let mapStateToProps = state=>{
     }
 }
 
-Tabbar = connect(mapStateToProps)(Tabbar);
+let mapDispatchToProps = dispatch=>{
+    return {
+        // 把方法映射到props
+        changeIssueStatus(status){
+            dispatch(issue(status));
+        },
+    }
+}
+
+Tabbar = connect(mapStateToProps,mapDispatchToProps)(Tabbar);
 
 // 高阶组件
 Tabbar=withRouter(Tabbar)

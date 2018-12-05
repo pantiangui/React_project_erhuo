@@ -1,0 +1,105 @@
+@import "./common.scss";
+
+
+#issue{
+	display:none;
+	position: fixed;
+	z-index: 1000;
+	padding-top:rem(200);
+	background:rgba(0,0,0,0.9);
+	left:0;
+	top:0;
+	.issue{
+		position:relative;
+		.issue_hint{
+			width:100%;
+			padding:0 rem(50);
+			>h4{
+				color: #FFF;
+				font-weight: 300;
+				font-size: rem(55);
+			}
+			>p{
+				color: #FFF;
+				font-size: rem(35);
+				margin-top: rem(90);
+				line-height: rem(55);
+			}
+			.issue_notice{
+				height:rem(104);
+				width:100%;
+				position: relative;
+				line-height: rem(104);
+				margin-top: rem(100);
+				>i{
+					position: absolute;
+					font-size: rem(60);
+					color: #FFF;
+				}
+				.notice_icon{
+					left: 0;
+				}
+				.to{
+					right: 0;
+				}
+				>span{
+					z-index: 100;
+					display: inline-block;
+					color: #FFF;
+					font-size: rem(35);
+					margin-left: rem(140);
+				}
+			}
+		}
+		.issue_item{
+			margin-top: rem(600);
+			height: rem(300);
+			width: 100%;
+			>ul{
+				display: flex;
+				text-align: center;
+				>li{
+					flex: 1;
+					position: relative;
+					>a{
+						position: absolute;
+						display: inline-block;
+						width: rem(172);
+						height: rem(172);
+						background:#fed30a;
+						border-radius: 50%;
+						overflow: hidden;
+						text-align: center;
+						line-height: rem(172);
+						font-size: rem(80);
+						color: $color2;
+						font-weight: 700;
+					}
+					>span{
+						display: inline-block;
+						margin-top: rem(200);
+						color: #FFF;
+						font-size: rem(35);
+					}
+				}
+			}
+		}
+	}
+	.add{
+		position: absolute;
+		width: rem(140);
+		height: rem(140);
+		border-radius: 50%;
+		left: rem(470);
+		bottom: rem(80);
+		background: white;
+		text-align: center;
+		line-height: rem(145);
+		z-index: 3000;
+		opacity: 1;
+		i{
+			color: $color1;
+			font-size: rem(100);
+		}
+	}
+}

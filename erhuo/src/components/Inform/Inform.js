@@ -43,7 +43,7 @@ class Inform extends Component{
 					hint:"看看大家都拿到了什么好消息"
 				}
 			],
-			
+			topic_content:["平台交易安全提醒","欢迎大家光临二货APP"]
 		}
 	}
 	
@@ -74,12 +74,33 @@ class Inform extends Component{
 				</div>
 				<div className="inform_list">
 					<ul>
-						<li></li>
+						{
+							this.state.list.map((val,idx)=>(
+								<li key={idx}>
+									<a className={"iconfont "+val.icon}></a>
+									<p>{val.title}</p>
+									<span>{val.hint}</span>
+									<i className="iconfont icon-qianjin to"></i>
+									<i className="underline"></i>
+								</li>
+							))
+						}
 					</ul>
 				</div>
-				<div></div>
-				<div></div>
-				<div></div>
+				<div className="topic">
+					<div className="topic_title">
+						<i></i>
+						<span>热门话题</span>
+						<a>查看更多</a>
+					</div>
+					<div className="topic_content">
+						{
+							this.state.topic_content.map((val,idx)=>(
+								<p key={idx}>{val}</p>
+							))
+						}
+					</div>
+				</div>
 			</div>
 		)
 	}

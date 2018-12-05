@@ -16,4 +16,13 @@ export function headerInfo(info){
     }
 }
 
+// 发布issue
+export function issue(status){
+    return {
+        type:'CHANGE_ISSUE_STATUS',
+        payload:status
+    }
+}
+
+
 // export {cart};

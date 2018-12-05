@@ -1,6 +1,7 @@
 @import "./common.scss";
 
 #inform{
+	background:#FFF;
 	.notice{
 		height:rem(104);
 		width:100%;
@@ -9,7 +10,7 @@
 		line-height: rem(104);
 		>i{
 			position: absolute;
-			font-size: rem(60);
+			font-size: rem(45);
 			
 		}
 		.notice_icon{
@@ -23,9 +24,129 @@
 		>span{
 			z-index: 100;
 			display: inline-block;
-			color: #9c9a67;
+			color: #d58639;
 			font-size: rem(35);
 			margin-left: rem(140);
 		}
 	}
+	.inform_list{
+		>ul{
+			>li{
+				height: rem(195);
+				width: 100%;
+				position: relative;
+				>*{
+					position: absolute;
+				}
+				>a{
+					display: inline-block;
+					width: rem(100);
+					height: rem(100);
+					top:rem(47);
+					left: rem(50);
+					text-align: center;
+					line-height: rem(100);
+					color: #FFF;
+					border-radius: rem(6);
+					overflow: hidden;
+					font-size: rem(45);
+				}
+				>p{
+					font-size: rem(35);
+					color: $color2;
+					left: rem(195);
+					top: rem(60);
+				}
+				>span{
+					display: inline-block;
+					font-size: rem(32);
+					color: #929292;
+					left: rem(195);
+					top: rem(130);
+				}
+				.to{
+					top: rem(76);
+					right: rem(50);
+					font-size: rem(45);
+					color: #a7a7a7;
+				}
+				
+				&:nth-child(-n+3){
+					// background:red;
+					.underline{
+						display: inline-block;
+						background:#f3f3f3;
+						height: rem(2);
+						left: rem(190);
+						bottom: rem(1);
+						width: rem(890);
+					}
+				}
+				&:last-child{
+					border-top: rem(30) solid #eeeeee;
+					border-bottom: rem(30) solid #eeeeee;
+					height: rem(255);
+				}
+				&:nth-child(1) a{
+					background:#739fe0;
+				}
+				&:nth-child(2) a{
+					background:#f58f23;
+				}
+				&:nth-child(3) a{
+					background:#ff6f6e;
+				}
+				&:nth-child(4) a{
+					background:#5ed48a;
+				}
+				&:nth-child(5) a{
+					background:#6e9ce9;
+				}
+			}
+		}
+	}
+	.topic{
+		width: 100%;
+		.topic_title{
+			height: rem(135);
+			width: 100%;
+			border-bottom: rem(5) solid #efefef;
+			position:relative;
+			line-height:rem(130);
+			>*{
+				display: inline-block;
+				font-size: rem(35);
+			}
+			>i{
+				width: rem(18);
+				height: rem(64);
+				background:#f8a813;
+				position: absolute;
+				top: rem(33);
+				left: 0;
+			}
+			>span{
+				margin-left: rem(64);
+				color: $color2;
+			}
+			>a{
+				margin-left: rem(630);
+				color: #929292;
+			}
+		}
+		.topic_content{
+			margin-top: rem(40);
+			>p{
+				height: rem(90);
+				font-size: rem(35);
+				color: $color2;
+				line-height: rem(90);
+				padding-left: rem(20);
+				background:#EEE;
+				margin-left: rem(55);
+				margin-bottom: rem(15);
+			}
+		}
+	}
+	
 }

@@ -4,10 +4,30 @@ import React,{Component} from 'react';
 import {connect} from 'react-redux';
 import {tabbar} from '../../actions/index.js';
 
+
+import '../../sass/issue.scss'
+
 class Issue extends Component{
+	
+	constructor(){
+		super();
+		this.state={
+			clientWidth:"",
+			clientHeight:"",
+			tabs:[
+			],
+			
+		}
+	}
+	
 	
 	componentWillMount(){
 		// this.props.changeTabbarStatus(false);
+		let clientWidth=document.body.clientWidth;
+		this.state.clientWidth=clientWidth;
+		let clientHeight=document.body.clientHeight;
+		this.state.clientHeight=clientHeight;
+		
 	}
 	
 	componentWillUnmount(){
@@ -15,8 +35,13 @@ class Issue extends Component{
 	}
 	
 	render(){
-		return (<div id="issue">发布</div>)
-		}
+		return (
+			<div id="issue" style={{width:this.state.clientWidth,
+			height:this.state.clientHeight}}>
+				发布
+			</div>
+		)
+	}
 }
 
 let mapStateToProps=state=>({})

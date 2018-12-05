@@ -1,6 +1,6 @@
 @import "./common.scss";
 
-
+// tabbar部分
 #tabbar{
 	height: rem(147);
 	width: rem(1080);
@@ -47,6 +47,7 @@
 					background: white;
 					text-align: center;
 					line-height: rem(145);
+					z-index: 2000;
 					i{
 						color: $color1;
 						font-size: rem(100);
@@ -59,6 +60,3 @@
 		}
 	}
 }
-// .tabbar_none{
-// 	display: none;
-// }

@@ -10,6 +10,7 @@ import store from './store';
 import "./static/iconfont_tabbar/iconfont.css"
 import "./static/iconfont_mine/iconfont.css"
 import "./static/iconfont_inform/iconfont.css"
+import "./static/iconfont_issue/iconfont.css"
 import './css/base.css'
 
 

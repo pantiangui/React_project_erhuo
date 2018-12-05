@@ -41,16 +41,16 @@ class Home extends Component{
 			content_item_sel:0,
 			info_img:[
 				{
-					img: '../../static/info_img/10100060004.jpg'
+					img: '../../../public/img/info_img/10100060004.jpg'
 				},
 				{
-					img: '../../static/info_img/10100070001.jpg'
+					img: '../../../public/img/info_img/10100060004.jpg'
 				},
 				{
-					img: '../../static/info_img/10100080001.jpg'
+					img: '../../../public/img/info_img/10100060004.jpg'
 				},
 				{
-					img: '../../static/info_img/10100060004.jpg'
+					img: '../../../public/img/info_img/10100060004.jpg'
 				}
 			],
 			info_imgs:[]
@@ -180,10 +180,15 @@ class Home extends Component{
 								</div>
 								<div className="content_list_img">
 									<ul>
+										{
+											this.state.info_img.map((val,idx)=>(
+												<li key={idx}><img src="./image/info_img/10100060003.jpg" /></li>
+											))
+										}
+										{/* <li><img src={require('../../static/info_img/10100060003.jpg')}/></li>
 										<li><img src={require('../../static/info_img/10100060003.jpg')}/></li>
 										<li><img src={require('../../static/info_img/10100060003.jpg')}/></li>
-										<li><img src={require('../../static/info_img/10100060003.jpg')}/></li>
-										<li><img src={require('../../static/info_img/10100060003.jpg')}/></li>
+										<li><img src={require('../../static/info_img/10100060003.jpg')}/></li> */}
 									</ul>
 								</div>
 								<div className="content_list_title">
