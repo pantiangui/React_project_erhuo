@@ -52,7 +52,7 @@
 			}
 		}
 		.issue_item{
-			margin-top: rem(600);
+			margin-top: rem(200);
 			height: rem(300);
 			width: 100%;
 			>ul{
@@ -74,6 +74,7 @@
 						font-size: rem(80);
 						color: $color2;
 						font-weight: 700;
+						z-index: 3000;
 					}
 					>span{
 						display: inline-block;

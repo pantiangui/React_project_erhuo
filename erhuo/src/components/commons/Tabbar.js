@@ -6,7 +6,7 @@ import {issue} from '../../actions/index.js';
 
 
 import '../../sass/tabbar.scss'
-import {Issue} from "./Issue.js"
+import {Issue} from "../Issue/Issue.js"
 
 class Tabbar extends Component{
 	constructor(){
@@ -78,9 +78,7 @@ class Tabbar extends Component{
 		});
 		
 	}
-	
-	
-	componentWillMount(){
+	componentDidMount(){
 		this.fn()
 		
 	}

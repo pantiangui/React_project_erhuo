@@ -1,10 +1,11 @@
 import React,{Component} from 'react';
 
 import {connect} from 'react-redux';
-import {tabbar,headerInfo} from '../../actions/index.js';
+import {headerInfo} from '../../actions/index.js';
 
 import '../../sass/classify.scss'
 import {ClassifyItem} from "./ClassifyItem.js"
+import {ClassifyList} from "./ClassifyList.js"
 
 class Classify extends Component{
 	
@@ -31,7 +32,7 @@ class Classify extends Component{
 		return (
 			<div id="classify">
 				<ClassifyItem/>
-				
+				<ClassifyList/>
 			</div>
 		)
 	}
@@ -45,9 +46,6 @@ let mapStateToProps=state=>({
 let mapDispatchToProps = dispatch=>{
     return {
         // 把changeTabbarStatus方法映射到props
-        changeTabbarStatus(status){
-            dispatch(tabbar(status));
-        },
 		changeHeaderInfo(info){
 			dispatch(headerInfo(info));
 		}

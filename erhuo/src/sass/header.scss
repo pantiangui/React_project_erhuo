@@ -1,0 +1,33 @@
+@import "./common.scss";
+
+#header{
+	width: 100%;
+	height: rem(142);
+	.header{
+		width: 100%;
+		height: rem(142);
+		background: #fbfbfb;
+		line-height: rem(142);
+		text-align: center;
+		position: fixed;
+		z-index: 100;
+		p{
+			position: relative;
+			width: 100%;
+			height: rem(142);
+			font-size: rem(42);
+			>i{
+				position: absolute;
+				font-size: rem(70);
+				color: #f5903e;
+				top: rem(6);
+			}
+			.back{
+				left: rem(50);
+			}
+			.more{
+				right: rem(50);
+			}
+		}
+	}
+}

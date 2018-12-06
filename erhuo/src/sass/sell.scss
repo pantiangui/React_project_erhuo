@@ -1,0 +1,29 @@
+// 出售闲置
+
+@import "./common.scss";
+
+#sell{
+	border-top: rem(2) solid #efefef;
+	background:#FFF;
+	.title{
+		height:rem(134);
+		width:100%;
+		background:yellowgreen;
+		font-size:0;
+		padding-left:rem(200);
+		position: relative;
+		>span{
+			position: absolute;
+			display: inline-block;
+			font-size:rem(40);
+			colo:$color2;
+			left: rem(50);
+			top: rem(48);
+		}
+		>input{
+			font-size:rem(35);
+			height:rem(134);
+			background: none;
+		}
+	}
+}

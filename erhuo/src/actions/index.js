@@ -24,5 +24,13 @@ export function issue(status){
     }
 }
 
+//分类页下标
+export function classifyIndex(index){
+    return {
+        type:'CHANGE_CLASSIFY_INDEX',
+        payload:index
+    }
+}
+
 
 // export {cart};

@@ -1,12 +1,16 @@
 import React,{Component} from 'react';
 
+
+import {connect} from 'react-redux';
+import {classifyIndex} from '../../actions/index.js';
+
 import '../../sass/classify.scss'
+
 
 class ClassifyItem extends Component{
 	constructor(){
 		super();
 		this.state={
-			client_H:"",
 			classify_item:[
 				{
 					title:"品牌手机",
@@ -41,7 +45,6 @@ class ClassifyItem extends Component{
 					path:""
 				},
 			],
-			selectedItem:0,
 			
 		}
 	}
@@ -51,28 +54,24 @@ class ClassifyItem extends Component{
 		this.setState({
 			selectedItem:idx
 		})
-		// this.props.history.push(path)
+		this.props.changeClassifyIndex(idx)
 	}
 	
 	
-	componentWillMount() {
-		let client_h=document.body.clientHeight;
-		this.state.client_H=client_h
-		// console.log(this.state.client_H)
+	componentDidMount() {
 	}
 	
 	
-	 // style={{height:this.state.client_H}}
 	render(){
 		return (
 			<div id="classify_item">
 				<ul>
 				{
 					this.state.classify_item.map((tab,idx)=>(
-							<li key={idx} onClick={this.itemClick.bind(this,idx,tab.path)}>
-								<i className={this.state.selectedItem===idx?"selectedItem1":""}></i>
-								<span className={this.state.selectedItem===idx?"selectedItem2":""}>{tab.title}</span>
-							</li>
+						<li key={idx} onClick={this.itemClick.bind(this,idx,tab.path)}>
+							<i className={this.props.classifyIndex===idx?"selectedItem1":""}></i>
+							<span className={this.props.classifyIndex===idx?"selectedItem2":""}>{tab.title}</span>
+						</li>
 					)
 				)}
 				</ul>
@@ -80,5 +79,21 @@ class ClassifyItem extends Component{
 		)
 	}
 }
+
+
+let mapStateToProps=state=>({
+		//把state.映射到props
+	classifyIndex:state.commonReducer.classifyIndex,
+})
+let mapDispatchToProps = dispatch=>{
+    return {
+        // 把方法映射到props
+		changeClassifyIndex(index){
+			dispatch(classifyIndex(index));
+		}
+    }
+}
+ClassifyItem = connect(mapStateToProps,mapDispatchToProps)(ClassifyItem);
+
 
 export {ClassifyItem}
