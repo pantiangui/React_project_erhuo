@@ -81,7 +81,7 @@ class My extends Component{
 					<div className="user_box_o"></div>
 					<div className="user_box_box">
 						<div className="user_icon_box">
-							<a></a>
+							<a><img src="./image/common_icon/user_icon.png"/></a>
 						</div>
 						<a className="iconfont icon-shezhi setting"></a>
 						<p>被驯服的象</p>

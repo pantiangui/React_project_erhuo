@@ -1,0 +1,265 @@
+@import "./common.scss";
+
+// 详情页 
+
+#callback{
+	background:#FFF;
+	.goods_info{
+		.goods_info_title{
+			height: rem(180);
+			width: 100%;
+			border-bottom: rem(2) solid #eeeeee;
+			>p{
+				color: #808080;
+				font-size: rem(40);
+			}
+			>span,del{
+				display: inline-block;
+			}
+			>*{
+				margin-top: rem(60);
+				margin-left: rem(30);
+			}
+			>span{
+				color: #fe0000;
+				font-size: rem(35);
+			}
+			>del{
+				color: #bebebe;
+				margin-left: rem(50);
+				font-size: rem(26);
+			}
+		}
+		.goods_info_place{
+			height: rem(135);
+			width: 100%;
+			position: relative;
+			padding-left: rem(30);
+			>img{
+				position: absolute;
+				width: rem(48);
+				height: rem(50);
+				top: rem(42);
+			}
+			>span{
+				display: inline-block;
+				margin-top: rem(47);
+				margin-left: rem(80);
+				font-size: rem(35);
+				color: #666666;
+			}
+		}
+		.goods_depict{
+			border-top: rem(30) solid #f0f0f0;
+			border-bottom: rem(30) solid #f0f0f0;
+			padding:rem(60) rem(30);
+			>span{
+				font-size: rem(35);
+				color: $color2;
+				margin-bottom: rem(70);
+				display: inline-block;
+			}
+			>ul{
+				display: inline-block;
+				float: right;
+				li{
+					padding: rem(16);
+					border: rem(2) solid #ff8321;
+					color: #757575;
+					font-size: rem(30);
+				}
+			}
+			>p{
+				font-size: rem(35);
+				color: $color2;
+			}
+		}
+		.goods_img{
+			padding-top: rem(50);
+			>ul{
+				>li{
+					padding: 0 rem(30);
+					border-radius: rem(20);
+					overflow: hidden;
+					img{
+						width: 100%;
+						height: auto;
+						margin-bottom: rem(30);
+					}
+				}
+			}
+		}
+	}
+	.assure{
+		height: rem(151);
+		width: 100%;
+		border-top: rem(1) solid #cccccc;
+		position: relative;
+		line-height: rem(150);
+		color: #0096ff;
+		>img{
+			width: rem(72);
+			height: rem(90);
+			position: absolute;
+			left: rem(30);
+			top: rem(30);
+		}
+		>span{
+			display: inline-block;
+			margin-left: rem(140);
+			font-size: rem(32);
+		}
+		>i{
+			position: absolute;
+			font-size: rem(50);
+			right: rem(30);
+		}
+	}
+	.user_stop{
+		height: rem(417);
+		width: 100%;
+		border-top: rem(30) solid #f0f0f0;
+		border-bottom: rem(30) solid #f0f0f0;
+		padding:0 rem(30);
+		.user_stop_title{
+			padding: rem(15) 0;
+			border-bottom: rem(2) solid #f0f0f0;
+			position: relative;
+			height: rem(150);
+			line-height: rem(100);
+			>a{
+				position: absolute;
+				left: 0;
+				top: 15;
+				display: inline-block;
+				height: rem(120);
+				width: rem(120);
+				border-radius: 50%;
+				overflow: hidden;
+				>img{
+					height: rem(120);
+					width: rem(120);
+				}
+			}
+			>span{
+				display: inline-block;
+				font-size: rem(32);
+				color: $color2;
+				margin-left: rem(125);
+			}
+		}
+		.user_stop_assess{
+			height: rem(207);
+			width: 100%;
+			display: flex;
+			>div{
+				flex: 1;
+				display: inline-block;
+				float: left;
+				height: 100%;
+			}
+			.user_stop_assess_left{
+				font-size: rem(32);
+				color: #767676;
+				>p{
+					margin-top: rem(40);
+				}
+			}
+			.user_stop_assess_right{
+				padding: rem(30) 0;
+				position: relative;
+				>ul{
+					>li{
+						text-align: center;
+						float: left;
+						width: rem(120);
+						height: rem(147);
+						border-right: rem(1) solid #bfbfbf;
+						>p{
+							margin-top: rem(30);
+							font-size: rem(32);
+							color: $color2;
+						}
+					}
+				}
+				>i{
+					position: absolute;
+					right: 0;
+					top: rem(70);
+					font-size: rem(60);
+					color:#9d9d9d;
+				}
+			}
+		}
+	}
+	.leave{
+		height: rem(151);
+		width: 100%;
+		border-bottom: rem(1) solid #CCC;
+		padding: 0 rem(30);
+		line-height: rem(150);
+		font-size: rem(32);
+		span{
+			padding: rem(30);
+		}
+		.leave_leave{
+			display: inline-block;
+			width:rem(3);
+			height: rem(36);
+			background:#7a7a7a;
+			// border-right: rem(3) solid ;
+		}
+	}
+	.leave_list{
+		height: rem(400);
+		width: 100%;
+		text-align: center;
+		line-height: rem(400);
+		>img{
+			height: rem(274);
+			width: rem(368);
+		}
+	}
+	#handle{
+		.handle{
+			height: rem(150);
+			width: 100%;
+			display: flex;
+			>div{
+				flex: 1;
+			}
+			.handle_item{
+				>ul{
+					display: flex;
+					>li{
+						padding-top: rem(15);
+						flex: 1;
+						text-align: center;
+						color: $color2;
+						>i{
+							font-size: rem(60);
+						}
+						p{
+							font-size: rem(35);
+							margin-top: rem(10);
+						}
+					}
+				}
+			}
+			.handle_submit{
+				>a{
+					margin-top: rem(15);
+					text-align: center;
+					font-size: rem(40);
+					color: #FFF;
+					line-height: rem(120);
+					display: inline-block;
+					height: rem(120);
+					width: rem(526);
+					border-radius: rem(25);
+					background:#ff831f;
+				}
+			}
+		}
+	}
+}

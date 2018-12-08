@@ -43,6 +43,10 @@
 					overflow: hidden;
 					margin-left: rem(5);
 					margin-top: rem(5);
+					>img{
+						width: rem(160);
+						height: rem(160);
+					}
 				}
 			}
 			.setting{

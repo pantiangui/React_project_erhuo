@@ -80,18 +80,22 @@
 				.wards_content_top_left{
 					width: rem(506);
 					padding-bottom: rem(8);
-					>img{
-						width: rem(506);
-						height: rem(490);
+					>a{
+						>img{
+							width: rem(506);
+							height: rem(490);
+						}
 					}
 				}
 				.wards_content_top_right{
 					width: rem(514);
-					>img{
-						width: rem(506);
-						height: rem(240);
-						margin-left: rem(8);
-						margin-bottom: rem(9);
+					a{
+						>img{
+							width: rem(506);
+							height: rem(240);
+							margin-left: rem(8);
+							margin-bottom: rem(9);
+						}
 					}
 				}
 			}
@@ -100,9 +104,11 @@
 				width:100%;
 				display: flex;
 				justify-content: space-between;
-				>img{
-					width: rem(330);
-					height: rem(300);
+				a{
+					>img{
+						width: rem(330);
+						height: rem(300);
+					}
 				}
 			}
 		}

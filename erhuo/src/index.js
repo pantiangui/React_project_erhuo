@@ -11,6 +11,7 @@ import "./static/iconfont_tabbar/iconfont.css"
 import "./static/iconfont_mine/iconfont.css"
 import "./static/iconfont_inform/iconfont.css"
 import "./static/iconfont_issue/iconfont.css"
+import "./static/iconfont_detail/iconfont.css"
 import './css/base.css'
 
 

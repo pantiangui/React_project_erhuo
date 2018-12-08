@@ -16,11 +16,11 @@ class Header extends Component {
 		<div id="header" style={{display:this.props.headerInfo.headerStatus===true?"block":"none"}}>
 			<div className="header">
 				<p>
-				<i className="iconfont icon-buoumaotubiao09 back" 
+				<i className="iconfont icon-fanhui back" 
 				onClick={this.goBackClick.bind(this)} 
 				style={{display:this.props.headerInfo.headerIconStatus===true?"inline":"none"}}></i>
 				{this.props.headerInfo.headertitle}
-				<i className="iconfont icon-gengduo more" 
+				<i className="iconfont icon-icon_more more" 
 				style={{display:this.props.headerInfo.headerIconStatus===true?"inline":"none"}}></i>
 				</p>
 			</div>

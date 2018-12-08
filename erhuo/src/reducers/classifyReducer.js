@@ -17,7 +17,7 @@ let initState = {
 				icon: "c0101/c010104.jpg"
 			},
 			{
-				title: "vivo",
+				title: "VIVO",
 				icon: "c0101/c010105.jpg"
 			},
 			{

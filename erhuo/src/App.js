@@ -9,17 +9,19 @@ import history from 'history/createHashHistory'
 
 // 引入组件
 
-import {Header} from "./components/commons/Header"
-import {Tabbar} from "./components/commons/Tabbar"
+import {Header} from "./components/commons/Header"//头部
+import {Tabbar} from "./components/commons/Tabbar"//底部导航栏
+import {List} from "./components/commons/List"//列表页
+import {Detail} from "./components/commons/Detail"//详情页
 
-import {Home} from "./components/Home/Home"
-import {Classify} from "./components/Classify/Classify"
-import {Inform} from "./components/Inform/Inform"
-import {Mine} from "./components/Mine/Mine"
+import {Home} from "./components/Home/Home"//首页
+import {Classify} from "./components/Classify/Classify"//分类
+import {Inform} from "./components/Inform/Inform"//消息
+import {Mine} from "./components/Mine/Mine"//我的
 
-import {Sell} from "./components/Issue/Sell"
-import {Callback} from "./components/Issue/Callback"
-import {MobileCallback} from "./components/Issue/MobileCallback"
+import {Sell} from "./components/Issue/Sell"//出售闲置
+import {Callback} from "./components/Issue/Callback"//我要收购
+import {MobileCallback} from "./components/Issue/MobileCallback"//手机回收
 
 import 'antd-mobile/dist/antd-mobile.css'//引入样式
 import './sass/App.scss'
@@ -48,6 +50,8 @@ class App extends Component {
 				<Route path="/classify" component={Classify} />
 				<Route path="/inform" component={Inform} />
 				<Route path="/mine" component={Mine} />
+				<Route path="/list" component={List} />
+				<Route path="/detail" component={Detail} />
 				<Route path="/sell" component={Sell} />
 				<Route path="/callback" component={Callback} />
 				<Route path="/mobileCallback" component={MobileCallback} />

@@ -136,6 +136,7 @@
 		}
 		.topic_content{
 			margin-top: rem(40);
+			padding-bottom: rem(30);
 			>p{
 				height: rem(90);
 				font-size: rem(35);
@@ -144,7 +145,7 @@
 				padding-left: rem(20);
 				background:#EEE;
 				margin-left: rem(55);
-				margin-bottom: rem(15);
+				margin-top: rem(15);
 			}
 		}
 	}

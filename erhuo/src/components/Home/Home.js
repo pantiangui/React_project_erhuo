@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-
+import {withRouter} from 'react-router-dom';//引入路由
 import { Carousel, WingBlank } from 'antd-mobile';
 
 import '../../sass/home.scss'
@@ -53,7 +53,6 @@ class Home extends Component{
 					img: '../../../public/img/info_img/10100060004.jpg'
 				}
 			],
-			info_imgs:[]
 		}
 	}
 	
@@ -66,6 +65,10 @@ class Home extends Component{
 		})
 	}
 	
+	// 进入列表页事件
+	toListClick(){
+		this.props.history.push("/list")
+	}
 	
 	componentWillMount() {
 		
@@ -123,17 +126,17 @@ class Home extends Component{
 					<div className="wards_content">
 						<div className="wards_content_top">
 							<div className="wards_content_top_left">
-								<img src={require('../../static/wards_img/wards_1.png')} />
+							<a><img src={require('../../static/wards_img/wards_1.png')} /></a>
 							</div>
 							<div className="wards_content_top_right">
-								<img src={require('../../static/wards_img/wards_2.png')} />
-								<img src={require('../../static/wards_img/wards_3.png')} />
+								<a><img src={require('../../static/wards_img/wards_2.png')} /></a>
+								<a><img src={require('../../static/wards_img/wards_3.png')} /></a>
 							</div>
 						</div>
 						<div className="wards_content_bottom">
-							<img src={require('../../static/wards_img/wards_b1.png')} />
-							<img src={require('../../static/wards_img/wards_b2.png')} />
-							<img src={require('../../static/wards_img/wards_b3.png')} />
+							<a onClick={this.toListClick.bind(this)}><img src={require('../../static/wards_img/wards_b1.png')} /></a>
+							<a onClick={this.toListClick.bind(this)}><img src={require('../../static/wards_img/wards_b2.png')} /></a>
+							<a onClick={this.toListClick.bind(this)}><img src={require('../../static/wards_img/wards_b3.png')} /></a>
 						</div>
 					</div>
 					<div className="notice">
@@ -171,11 +174,13 @@ class Home extends Component{
 							)}
 						</ul>
 					</div>
+					
+					{/* 首页-列表页 */}
 					<div className="content_list">
 						<ul>
 							<li>
 								<div className="content_list_header">
-									<a><img src={require('../../static/info_img/10100060003.jpg')}/></a>
+									<a><img src="./image/common_icon/user_icon.png"/></a>
 									<span>二货优品</span>
 								</div>
 								<div className="content_list_img">
@@ -197,7 +202,7 @@ class Home extends Component{
 									<p>安卓数据快充线</p>
 								</div>
 								<div className="content_list_place">
-									<img src={require("../../static/common_icon/place.png")} />
+									<img src="./image/common_icon/place.png" />
 									<span>广东省 广州市 天河区</span>
 								</div>	
 							</li>
@@ -211,5 +216,7 @@ class Home extends Component{
 			)
 		}
 }
+
+Home=withRouter(Home)
 
 export {Home}
