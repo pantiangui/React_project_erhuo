@@ -1,6 +1,7 @@
 import React,{Component} from 'react';
 import {withRouter} from 'react-router-dom';//引入路由
 import { Carousel, WingBlank } from 'antd-mobile';
+import axios from 'axios';
 
 import '../../sass/home.scss'
 
@@ -71,7 +72,10 @@ class Home extends Component{
 	}
 	
 	componentWillMount() {
-		
+		axios.post('http://127.0.0.1:9090/erhuo/goods/aa')
+		.then(res=>{
+			console.log(res)
+		})
 	}
 	
 	render(){

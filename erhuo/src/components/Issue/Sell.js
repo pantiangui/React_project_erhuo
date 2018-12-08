@@ -48,7 +48,7 @@ class Sell extends Component{
 				<div className="upload_img">
 					<div className="upload_img_box">
 						<ul className="img_list">
-							<li><img src="" /></li>
+							<li><img src="https://img14.360buyimg.com/ppershou/jfs/t30373/164/979704201/18097/3cffcccd/5c03ea44N5cf8bc54.jpg" /></li>
 							<li><img src="" /></li>
 							<li><img src="" /></li>
 							<li><img src="" /></li>
