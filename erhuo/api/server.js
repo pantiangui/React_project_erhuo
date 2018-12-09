@@ -18,7 +18,7 @@ app.all('*', function(req, res, next) {
 	
 	// 跨域请求CORS中的预请求
 	if (req.method == "OPTIONS"){
-		res.send(200); //让options请求快速返回
+		// res.send(200); //让options请求快速返回
 	}
 	else{
 		next();

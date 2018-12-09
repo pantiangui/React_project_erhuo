@@ -67,15 +67,15 @@ class Home extends Component{
 	}
 	
 	// 进入列表页事件
-	toListClick(){
+	toClassifyListClick(){
 		this.props.history.push("/list")
 	}
 	
 	componentWillMount() {
-		axios.post('http://127.0.0.1:9090/erhuo/goods/aa')
-		.then(res=>{
-			console.log(res)
-		})
+// 		axios.post('http://127.0.0.1:9090/erhuo/goods/goods_insert')
+// 		.then(res=>{
+// 			console.log(res.data)
+// 		})
 	}
 	
 	render(){
@@ -138,9 +138,9 @@ class Home extends Component{
 							</div>
 						</div>
 						<div className="wards_content_bottom">
-							<a onClick={this.toListClick.bind(this)}><img src={require('../../static/wards_img/wards_b1.png')} /></a>
-							<a onClick={this.toListClick.bind(this)}><img src={require('../../static/wards_img/wards_b2.png')} /></a>
-							<a onClick={this.toListClick.bind(this)}><img src={require('../../static/wards_img/wards_b3.png')} /></a>
+							<a><img src={require('../../static/wards_img/wards_b1.png')} /></a>
+							<a onClick={this.toClassifyListClick.bind(this)}><img src={require('../../static/wards_img/wards_b2.png')} /></a>
+							<a onClick={this.toClassifyListClick.bind(this)}><img src={require('../../static/wards_img/wards_b3.png')} /></a>
 						</div>
 					</div>
 					<div className="notice">
@@ -191,7 +191,7 @@ class Home extends Component{
 									<ul>
 										{
 											this.state.info_img.map((val,idx)=>(
-												<li key={idx}><img src="./image/info_img/10100060003.jpg" /></li>
+												<li key={idx}><img src="//img10.360buyimg.com/n1/s290x290_jfs/t1/26599/1/92/40584/5c072578Ee2fb0bfb/8374fde50cd0081c.jpg!cc_1x1" /></li>
 											))
 										}
 										{/* <li><img src={require('../../static/info_img/10100060003.jpg')}/></li>
