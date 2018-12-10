@@ -3,7 +3,7 @@ import {render} from 'react-dom';
 import App from './App';
 import {Provider} from 'react-redux';
 import store from './store';
-
+import axios from 'axios';
 
 
 
@@ -16,6 +16,14 @@ import './css/base.css'
 
 
 import {HashRouter} from "react-router-dom"
+
+import qs from 'qs';
+axios.interceptors.request.use((config) => {
+    config.data = qs.stringify(config.data);
+    return config;
+}, function(error) {
+    return Promise.reject(error);
+});
 
 render(
 	 <Provider store={store}>

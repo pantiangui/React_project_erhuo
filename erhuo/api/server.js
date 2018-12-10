@@ -26,6 +26,7 @@ app.all('*', function(req, res, next) {
 });
 
 
+
 const goods = require('./router/goods.js'); //用户
 
 // 路由指向

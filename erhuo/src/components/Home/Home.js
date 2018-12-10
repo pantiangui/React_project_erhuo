@@ -1,13 +1,15 @@
 import React,{Component} from 'react';
 import {withRouter} from 'react-router-dom';//引入路由
 import { Carousel, WingBlank } from 'antd-mobile';
+import {connect} from 'react-redux';
+import {homeContentIdx} from '../../actions/index.js';
 import axios from 'axios';
 
 import '../../sass/home.scss'
 
 class Home extends Component{
-	constructor(){
-		super();
+	constructor(props){
+		super(props);
 		this.state={
 			// 轮播图图片
 			bannerImg:[],
@@ -33,13 +35,12 @@ class Home extends Component{
 			],
 			content_item:[
 				{
-					title:"新鲜发布"
+					title:"新鲜发布",
 				},
 				{
 					title:"附近的"
 				}
 			],
-			content_item_sel:0,
 			info_img:[
 				{
 					img: '../../../public/img/info_img/10100060004.jpg'
@@ -54,6 +55,8 @@ class Home extends Component{
 					img: '../../../public/img/info_img/10100060004.jpg'
 				}
 			],
+			content_data:[]
+			
 		}
 	}
 	
@@ -61,24 +64,44 @@ class Home extends Component{
 	
 	// 列表切换按钮点击事件
 	contentItemClick(idx){
-		this.setState({
-			content_item_sel:idx
-		})
+		// 改变样式
+		this.props.changeHomeContentIdx(idx)
+		
+		// 判断发送请求
+		if(idx===0){
+			axios.post('/erhuo/goods/goods_new')
+			.then(res => {
+				this.state.content_data=[];
+				this.state.content_data.push(res.data);
+			})
+		}
+		if(idx===1){
+			axios.post('/erhuo/goods/goods_nearby',{
+				address:"广州"
+			})
+			.then(ress => {
+				this.state.content_data=[];
+				this.state.content_data.push(ress.data);
+			})
+		}
 	}
 	
 	// 进入列表页事件
-	toClassifyListClick(){
-		this.props.history.push("/list")
+	toClassifyListClick(classify){
+		this.props.history.push("/list/"+classify)
 	}
 	
 	componentWillMount() {
-// 		axios.post('http://127.0.0.1:9090/erhuo/goods/goods_insert')
-// 		.then(res=>{
-// 			console.log(res.data)
-// 		})
+		axios.post('/erhuo/goods/goods_new')
+			.then(res => {
+				this.state.content_data=[];
+				this.state.content_data.push(res.data);
+			})
 	}
 	
+	
 	render(){
+		// console.log(this.state.content_data[0])
 		return (
 			<div id="home">
 				<div id="banner">
@@ -139,8 +162,8 @@ class Home extends Component{
 						</div>
 						<div className="wards_content_bottom">
 							<a><img src={require('../../static/wards_img/wards_b1.png')} /></a>
-							<a onClick={this.toClassifyListClick.bind(this)}><img src={require('../../static/wards_img/wards_b2.png')} /></a>
-							<a onClick={this.toClassifyListClick.bind(this)}><img src={require('../../static/wards_img/wards_b3.png')} /></a>
+							<a onClick={this.toClassifyListClick.bind(this,"tablet")}><img src={require('../../static/wards_img/wards_b2.png')} /></a>
+							<a onClick={this.toClassifyListClick.bind(this,"notebook")}><img src={require('../../static/wards_img/wards_b3.png')} /></a>
 						</div>
 					</div>
 					<div className="notice">
@@ -171,8 +194,8 @@ class Home extends Component{
 							{
 							this.state.content_item.map((tab,idx)=>(
 									<li key={idx} onClick={this.contentItemClick.bind(this,idx)}>
-										<a className={this.state.content_item_sel===idx?"content_item_sel1":""}>{tab.title}</a>
-										<i className={this.state.content_item_sel===idx?"content_item_sel2":""}></i>
+										<a className={this.props.homeContentIdx===idx?"content_item_sel1":""}>{tab.title}</a>
+										<i className={this.props.homeContentIdx===idx?"content_item_sel2":""}></i>
 									</li>	
 								)
 							)}
@@ -182,44 +205,58 @@ class Home extends Component{
 					{/* 首页-列表页 */}
 					<div className="content_list">
 						<ul>
-							<li>
-								<div className="content_list_header">
-									<a><img src="./image/common_icon/user_icon.png"/></a>
-									<span>二货优品</span>
-								</div>
-								<div className="content_list_img">
-									<ul>
-										{
-											this.state.info_img.map((val,idx)=>(
-												<li key={idx}><img src="//img10.360buyimg.com/n1/s290x290_jfs/t1/26599/1/92/40584/5c072578Ee2fb0bfb/8374fde50cd0081c.jpg!cc_1x1" /></li>
-											))
-										}
-										{/* <li><img src={require('../../static/info_img/10100060003.jpg')}/></li>
-										<li><img src={require('../../static/info_img/10100060003.jpg')}/></li>
-										<li><img src={require('../../static/info_img/10100060003.jpg')}/></li>
-										<li><img src={require('../../static/info_img/10100060003.jpg')}/></li> */}
-									</ul>
-								</div>
-								<div className="content_list_title">
-									<span>￥15</span>
-									<del>原价￥25</del>
-									<p>安卓数据快充线</p>
-								</div>
-								<div className="content_list_place">
-									<img src="./image/common_icon/place.png" />
-									<span>广东省 广州市 天河区</span>
-								</div>	
-							</li>
+							{
+								this.state.content_data.map((data,idx)=>(
+									data.map((data,idx)=>(
+										<li key={idx}>
+											<div className="content_list_header">
+												<a><img src="./image/common_icon/user_icon.png"/></a>
+												<span>{data.nickname}</span>
+											</div>
+											<div className="content_list_img">
+												<ul style={{width:(132*data.pics.split(",").length)}}>
+													{
+														data.pics.split(",").map((val,idx)=>(
+															<li key={idx}><img src={"//img10.360buyimg.com/n1/s630x630_"+val} /></li>
+														))
+													}
+												</ul>
+											</div>
+											<div className="content_list_title">
+												<span>￥{data.price}</span>
+										<del>原价￥{data.originalPrice}</del>
+										<p>{data.title}</p>
+											</div>
+											<div className="content_list_place">
+												<img src="./image/common_icon/place.png" />
+												<span>{data.city.split("undefined")[0]}</span>
+											</div>	
+										</li>
+									))
+								))
+							}
 						</ul>
 					</div>
 				</div>
-				<div></div>
-				<div></div>
-				<div></div>
 			</div>
 			)
 		}
 }
+
+let mapStateToProps=state=>({
+		//把state.映射到props
+	homeContentIdx:state.commonReducer.homeContentIdx,
+})
+let mapDispatchToProps = dispatch=>{
+    return {
+        // 把changeTabbarStatus方法映射到props
+		changeHomeContentIdx(info){
+			dispatch(homeContentIdx(info));
+		}
+    }
+}
+Home = connect(mapStateToProps,mapDispatchToProps)(Home);
+
 
 Home=withRouter(Home)
 

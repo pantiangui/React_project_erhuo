@@ -32,5 +32,13 @@ export function classifyIndex(index){
     }
 }
 
+//分类页下标
+export function homeContentIdx(index){
+    return {
+        type:'CHANGE_HOME_CONTENT_IDX',
+        payload:index
+    }
+}
+
 
 // export {cart};

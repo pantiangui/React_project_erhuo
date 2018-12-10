@@ -14,11 +14,7 @@ class Insert extends Component {
 		}
 	}
 
-	insert() {
-// 		this.state.goods.map((data, idx) => (
-// 			// console.log(data.pics)
-// 			axios.post('http://127.0.0.1:9090/erhuo/goods/goods_insert', {
-// 				title: "智能手表 "+data.title,
+// title: "智能手表 "+data.title,
 // 				city: data.province + " " + data.city + " " + data.district,
 // 				pics: data.pics,
 // 				classify: "智能设备",
@@ -28,11 +24,25 @@ class Insert extends Component {
 // 				createTime: data.createTime,
 // 				userId: "10012",
 // 				nickname: data.nickname
-// 			})
-// 			.then(res => {
-// 				console.log(res.data)
-// 			})
-// 		))
+
+	insert() {
+		this.state.goods.map((data, idx) => (
+			axios.post('http://127.0.0.1:9090/erhuo/goods/goods_insert', {
+				title: "智能手表 ",
+				city: 1212,
+				pics: 212,
+				classify: "智能设备",
+				itemDesc: 113241,
+				price: 134,
+				originalPrice: 3143,
+				createTime:32413,
+				userId: "10012",
+				nickname: 12341324
+			})
+			.then(res => {
+				console.log(res.data)
+			})
+		))
 
 	}
 	select(){

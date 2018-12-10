@@ -15,13 +15,14 @@ Router.post('/goods_insert',(req,res)=>{
 		}
 	})
 	.catch(function(err){
-		console.log(err)
 		return res.send({err:-1,msg:'添加失败'})
 	})
 })
 
 // 查询所有数据
 Router.post('/goods_data',(req,res)=>{
+	let {id} = req.body;
+	console.log(id)
 	goodsModel.find()
 	.then(function(data){
 		if(data.length>0){
@@ -29,7 +30,6 @@ Router.post('/goods_data',(req,res)=>{
 		}
 	})
 	.catch(function(err){
-		console.log(err)
 		return res.send("查询失败")
 	})
 })
@@ -44,9 +44,45 @@ Router.post('/goods_classify',(req,res)=>{
 		}
 	})
 	.catch(function(err){
-		console.log(err)
 		return res.send("查询失败")
 	})
 })
+
+
+// 获取同城附近数据
+Router.post('/goods_nearby',(req,res)=>{
+	let {address} = req.body;
+	goodsModel.find({city:{$regex:address}})
+	.then(function(data){
+		if(data.length>0){
+			return res.send(data)
+		}
+	})
+	.catch(function(err){
+		return res.send("查询失败")
+	})
+})
+
+
+// 新发布数据
+Router.post('/goods_new',(req,res)=>{
+	goodsModel.find()
+	.then(function(data){
+		// return res.send(data)
+		if(data.length>0){
+			goods_data=[];
+			for(var i=0;i<data.length;i++){
+				if(i%6==0){
+					goods_data.push(data[i])
+				}
+			}
+			return res.send(goods_data)
+		}
+	})
+	.catch(function(err){
+		return res.send("查询失败")
+	})
+})
+
 
 module.exports=Router;

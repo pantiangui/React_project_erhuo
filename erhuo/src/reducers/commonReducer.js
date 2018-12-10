@@ -15,6 +15,9 @@ let initState = {
 	// 分类页下标
 	classifyIndex:0,
 	
+	// 首页主内容下标
+	homeContentIdx:0
+	
 }
 let commonReducer = (state=initState,action)=>{
     switch(action.type){
@@ -37,6 +40,11 @@ let commonReducer = (state=initState,action)=>{
 			return {
 				...state,
 				classifyIndex:action.payload
+			}
+		case 'CHANGE_HOME_CONTENT_IDX'://首页主内容下标
+			return {
+				...state,
+				homeContentIdx:action.payload
 			}
         default:
             return state;
