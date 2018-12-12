@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-
+import {withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {classifyIndex} from '../../actions/index.js';
 
@@ -7,13 +7,18 @@ import '../../sass/classify.scss'
 
 class ClassifyList extends Component{
 	
+	toClassifyListClick(classify){
+		let data=this.props.classifyItem[this.props.classifyIndex]+"_"+classify
+		this.props.history.push("/list/"+data)
+	}
+	
 	render(){
 		return (
 			<div id="classify_list">
 				<ul>
 					{
-						this.props.aa[this.props.classifyIndex].map((val,idx)=>(
-							<li key={idx}>
+						this.props.classifyList[this.props.classifyIndex].map((val,idx)=>(
+							<li key={idx} onClick={this.toClassifyListClick.bind(this,val.title)}>
 								<a><img src={"./image/classify01_icon/"+val.icon}/></a>
 								<p>{val.title}</p>
 							</li>
@@ -29,7 +34,8 @@ class ClassifyList extends Component{
 let mapStateToProps=state=>({
 		//把state.映射到props
 	classifyIndex:state.commonReducer.classifyIndex,
-	aa:state.classifyReducer.classifyList
+	classifyList:state.classifyReducer.classifyList,
+	classifyItem:state.classifyReducer.classifyItem
 })
 let mapDispatchToProps = dispatch=>{
     return {
@@ -41,5 +47,6 @@ let mapDispatchToProps = dispatch=>{
 }
 ClassifyList = connect(mapStateToProps,mapDispatchToProps)(ClassifyList);
 
+ClassifyList=withRouter(ClassifyList)
 
 export {ClassifyList}

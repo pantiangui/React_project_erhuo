@@ -2,7 +2,7 @@
 
 import React,{Component} from 'react';
 import axios from 'axios';
-
+import {withRouter} from 'react-router-dom';//引入路由
 import {connect} from 'react-redux';
 import {headerInfo,tabbar} from '../../actions/index.js';
 
@@ -32,27 +32,56 @@ class List extends Component{
 			
 		}
 	}
+	//进入详情页
+	toDetailClick(id){
+		this.props.history.push("/detail/"+id)
+	}
+	
 	componentWillMount(){
 		// 获取导航栏参数
 		let classify=this.props.match.params.classify;
+		if(classify.indexOf("_")!==-1){
+			 classify= classify;
+			// 二次分类发送axios
+			axios.post('/erhuo/goods/goods_classify_list',{
+				classify:classify
+			})
+			.then(res => {
+				this.setState({goods_data:res.data})
+			})
+		}
+		else{
+			if(classify==='tablet'){
+				classify="平板电脑";
+			}
+			else if(classify==='notebook'){
+				classify="笔记本电脑";
+			}
+			// 以分类发送axios
+			axios.post('/erhuo/goods/goods_classify',{
+				classify:classify
+			})
+			.then(res => {
+				this.setState({goods_data:res.data})
+			})
+		}
+	}
+	
+	
+	componentDidMount(){
+		let classify=this.props.match.params.classify;
 		let header="";//头部提示
-		if(classify==='tablet'){
-			classify="平板电脑";
-			header="平板专区";
+		if(classify.indexOf("_")!==-1){
+			header=classify;
 		}
-		else if(classify==='notebook'){
-			classify="笔记本电脑";
-			header="笔记本专区";
+		else{
+			if(classify==='tablet'){
+				header="平板专区";
+			}
+			else if(classify==='notebook'){
+				header="笔记本专区";
+			}
 		}
-		
-		
-		// 以分类发送axios
-		axios.post('/erhuo/goods/goods_classify',{
-			classify:classify
-		})
-		.then(res => {
-			this.setState({goods_data:res.data})
-		})
 		// 改变头部状态
 		this.props.changeHeaderInfo({
 			headerStatus:true,
@@ -61,10 +90,6 @@ class List extends Component{
 		});
 		// 改变底部状态
 		this.props.changeTabberStatus(false)
-	}
-	
-	componentDidMount(){
-		
 	}
 	
 	componentWillUnmount(){
@@ -84,9 +109,9 @@ class List extends Component{
 				</div>
 				<div className="content">
 					<ul>
-						{
+						{this.state.goods_data==="空"?<div className="kong">空空如也!</div>:(
 							this.state.goods_data.map((data,idx)=>(
-								<li key={idx}>
+								<li key={idx} onClick={this.toDetailClick.bind(this,data._id)}>
 									<div className="content_list_header" >
 										<a><img src='./image/common_icon/user_icon.png'/></a>
 										<span>{data.nickname}</span>
@@ -110,7 +135,7 @@ class List extends Component{
 										<span>{data.city.split("undefined")[0]}</span>
 									</div>	
 								</li>
-							))
+							)) )
 						}
 					</ul>
 				</div>
@@ -137,5 +162,5 @@ let mapDispatchToProps = dispatch=>{
 }
 List = connect(mapStateToProps,mapDispatchToProps)(List);
 
-
+List=withRouter(List)
 export {List}

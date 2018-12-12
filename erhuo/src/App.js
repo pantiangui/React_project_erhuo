@@ -55,7 +55,7 @@ class App extends Component {
 				<Route path="/inform" component={Inform} />
 				<Route path="/mine" component={Mine} />
 				<Route path="/list/:classify" component={List} />
-				<Route path="/detail" component={Detail} />
+				<Route path="/detail/:id" component={Detail} />
 				<Route path="/sell" component={Sell} />
 				<Route path="/callback" component={Callback} />
 				<Route path="/mobileCallback" component={MobileCallback} />

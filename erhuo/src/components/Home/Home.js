@@ -91,6 +91,11 @@ class Home extends Component{
 		this.props.history.push("/list/"+classify)
 	}
 	
+	//进入详情页
+	toDetailClick(id){
+		this.props.history.push("/detail/"+id)
+	}
+	
 	componentWillMount() {
 		axios.post('/erhuo/goods/goods_new')
 			.then(res => {
@@ -208,7 +213,7 @@ class Home extends Component{
 							{
 								this.state.content_data.map((data,idx)=>(
 									data.map((data,idx)=>(
-										<li key={idx}>
+										<li key={idx} onClick={this.toDetailClick.bind(this,data._id)}>
 											<div className="content_list_header">
 												<a><img src="./image/common_icon/user_icon.png"/></a>
 												<span>{data.nickname}</span>

@@ -1,0 +1,79 @@
+@import "./common.scss";
+
+
+#login{
+	position: fixed;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	background:#EEE;
+	.logo_icon{
+		position:relative;
+		>a{
+			position: absolute;
+			width: rem(270);
+			height: rem(270);
+			border-radius: 50%;
+			display: inline-block;
+			overflow: hidden;
+			left:rem(405);
+			top:rem(164);
+			>img{
+				width: rem(270);
+				height: rem(270);
+				
+			}
+		}
+	}
+	.login_box{
+		margin-top: rem(500);
+		height: rem(1500);
+		width: 100%;
+		.input_box{
+			position: relative;
+			width: rem(900);
+			height: rem(301);
+			border-radius: rem(20);
+			overflow: hidden;
+			margin-left: rem(90);
+			font-size: 0;
+			>span{
+				position: absolute;
+				top: rem(150);
+				left: rem(18);
+				background:#EEE;
+				display: inline-block;
+				width: rem(860);
+				height: 0.5px;
+			}
+			>input{
+				padding: 0 rem(50);
+				font-size: rem(35);
+				width: rem(900);
+				height: rem(150);
+			}
+		}
+		.login_btn{
+			margin-top: rem(80);
+			border-radius: rem(20);
+			margin-left: rem(90);
+			display: inline-block;
+			width: rem(900);
+			height: rem(135);
+			line-height: rem(135);
+			text-align: center;
+			font-size: rem(45);
+			color: $color2;
+			background:$color1;
+		}
+		.to{
+			margin-top: rem(50);
+			padding: 0 rem(90);
+			font-size: rem(35);
+			.right{
+				float: right;
+			}
+		}
+	}
+}

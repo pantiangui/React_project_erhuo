@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
-
-import '../../sass/mine.scss'
+import {Route,withRouter} from 'react-router-dom';
+import '../../sass/my.scss'
 class My extends Component{
 	
 	constructor(){
@@ -83,7 +83,7 @@ class My extends Component{
 						<div className="user_icon_box">
 							<a><img src="./image/common_icon/user_icon.png"/></a>
 						</div>
-						<a className="iconfont icon-shezhi setting"></a>
+						<a className="setting">登录</a>
 						<p>被驯服的象</p>
 						<div className="user_box_attbox">
 							<span className="guan">关注: 0</span>
@@ -124,5 +124,6 @@ class My extends Component{
 		)
 	}
 }
+My=withRouter(My)
 
 export {My}

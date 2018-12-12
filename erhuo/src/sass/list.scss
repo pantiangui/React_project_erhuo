@@ -17,6 +17,14 @@
 	}
 	.content{
 		>ul{
+			.kong{
+				width: 100%;
+				height: rem(500);
+				text-align: center;
+				line-height: rem(500);
+				color: #ccc;
+				font-size: rem(100);
+			}
 			>li{
 				height: rem(896);
 				width: 100%;

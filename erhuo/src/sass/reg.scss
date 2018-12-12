@@ -1,0 +1,75 @@
+@import "./common.scss";
+
+
+#reg{
+	position: fixed;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	background:#EEE;
+	.header{
+		width:100%;
+		height:rem(150);
+		background:#fff;
+		text-align:center;
+		line-height:rem(150);
+		font-size:rem(45);
+		color:$color2;
+	}
+	.login_box{
+		margin-top:rem(30);
+		// height: rem(1300);
+		width: 100%;
+		.input_box{
+			// background:#CCC;
+			position: relative;
+			width: 100%;
+			height: rem(450);
+			overflow: hidden;
+			font-size: 0;
+			>span{
+				position: absolute;
+				background:#EEE;
+				display: inline-block;
+				width: rem(1000);
+				height: 0.5px;
+				z-index: 100;
+				margin-left: rem(40);
+			}
+			.xian1{
+				top: rem(150);
+			}
+			.xian2{
+				top: rem(300);
+			}
+			>input{
+				padding: 0 rem(50);
+				font-size: rem(35);
+				width: 100% ;
+				height: rem(150);
+			}
+		}
+		.login_btn{
+			margin-top: rem(80);
+			border-radius: rem(20);
+			margin-left: rem(90);
+			display: inline-block;
+			width: rem(900);
+			height: rem(135);
+			line-height: rem(135);
+			text-align: center;
+			font-size: rem(45);
+			color: $color2;
+			background:$color1;
+		}
+		.to{
+			margin-top: rem(50);
+			padding: 0 rem(90);
+			font-size: rem(35);
+			.right{
+				float: right;
+			}
+		}
+	}
+}

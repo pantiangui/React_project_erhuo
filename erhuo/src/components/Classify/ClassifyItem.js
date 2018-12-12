@@ -59,6 +59,7 @@ class ClassifyItem extends Component{
 	
 	
 	componentDidMount() {
+		
 	}
 	
 	

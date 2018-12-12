@@ -479,8 +479,8 @@ let initState = {
 			},
 
 		]
-	]
-
+	],
+	classifyItem:["品牌手机","平板电脑","笔记本电脑","数码影音","电脑","数码相机","3C配件","智能设备"]
 }
 
 let classifyReducer = (state = initState, action) => {

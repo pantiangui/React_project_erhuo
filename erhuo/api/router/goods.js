@@ -34,20 +34,6 @@ Router.post('/goods_data',(req,res)=>{
 	})
 })
 
-// 按分类查询数据
-Router.post('/goods_classify',(req,res)=>{
-	let {classify} = req.body;
-	goodsModel.find({classify:classify})
-	.then(function(data){
-		if(data.length>0){
-			return res.send(data)
-		}
-	})
-	.catch(function(err){
-		return res.send("查询失败")
-	})
-})
-
 
 // 获取同城附近数据
 Router.post('/goods_nearby',(req,res)=>{
@@ -77,6 +63,53 @@ Router.post('/goods_new',(req,res)=>{
 				}
 			}
 			return res.send(goods_data)
+		}
+	})
+	.catch(function(err){
+		return res.send("查询失败")
+	})
+})
+
+// 按分类查询数据
+Router.post('/goods_classify',(req,res)=>{
+	let {classify} = req.body;
+	goodsModel.find({classify:classify})
+	.then(function(data){
+		if(data.length>0){
+			return res.send(data)
+		}
+	})
+	.catch(function(err){
+		return res.send("查询失败")
+	})
+})
+
+
+// 二次分类查询数据
+Router.post('/goods_classify_list',(req,res)=>{
+	let {classify} = req.body;
+	let classify_1=classify.split("_")[0];
+	let classify_2=classify.split("_")[1];
+	goodsModel.find({classify:classify_1,title:{$regex:classify_2}})
+	.then(function(data){
+		if(data.length>0){
+			return res.send(data)
+		}else{
+			return res.send("空")
+		}
+	})
+	.catch(function(err){
+		return res.send("查询失败")
+	})
+})
+
+// 详情页返回单条数据
+Router.post('/detail',(req,res)=>{
+	let {id} = req.body;
+	goodsModel.find({_id:id})
+	.then(function(data){
+		if(data.length>0){
+			return res.send(data)
 		}
 	})
 	.catch(function(err){
