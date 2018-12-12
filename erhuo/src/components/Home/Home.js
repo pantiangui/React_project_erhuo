@@ -130,7 +130,7 @@ class Home extends Component{
 								  }}
 								>
 								  <img
-									src={require('../../static/banner_img/banner_2_1.png')}
+									src='./image/common_icon/banner_1.jpg' 
 									style={{ width: '100%',height:"3rem",verticalAlign: 'top' }}
 									onLoad={() => {
 									  window.dispatchEvent(new Event('resize'));
